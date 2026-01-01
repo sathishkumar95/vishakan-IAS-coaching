@@ -1160,6 +1160,48 @@ nav a {
     height: 260px;
   }
 }
+
+@media (max-width: 360px) {
+  /* NAV: stack links + CTA cleanly */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul .enroll {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo-area {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .logo-area h2 {
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  /* HERO buttons */
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
 @media (max-width: 640px) {
   .why-container h2 {
     font-size: 34px;
