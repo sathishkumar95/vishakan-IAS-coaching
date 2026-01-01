@@ -760,7 +760,7 @@ nav a {
 .hero-card img {
     width: 250px;
     position: absolute;
-    right: -38px;
+    right: -47px;
     bottom: -10px;
     background-size: cover;
     background-position: right;
@@ -2325,12 +2325,13 @@ footer .footer-bottom{
 }
 
 .divider {
-  width: 40px;
-  height: 4px;
-  background: #f4b400;
-  margin: 0 auto 50px;
-  border-radius: 2px;
+ width: 81px;
+    height: 7px;
+    background: #1B6AA5;
+    margin: 0 auto 50px;
+    border-radius: 7px;
 }
+
 
 .cards {
   display: grid;
@@ -2351,13 +2352,13 @@ footer .footer-bottom{
   font-family: var(--font-base);
   font-size: 30px;
   font-weight: 700;
-  color: #1c2e4a;
+  color: #1B6AA5;
   margin-bottom: 12px;
 }
 
 .card .desc {
   font-size: 14px;
-  color: #6b7280;
+  color: #345492;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -2386,7 +2387,7 @@ footer .footer-bottom{
 .card button {
   width: 100%;
   padding: 12px 0;
-  background: #0f2a56;
+  background: #1b6aa5;
   color: #fff;
   border: none;
   border-radius: 6px;
