@@ -483,17 +483,26 @@
     </div>
 
     <!-- CENTER FORM -->
-    <div  class="contact-form-card">
+    <div class="contact-form-card">
       <h2>Get in Touch</h2>
       <p class="form-subtitle">Any Time Available..</p>
 
-      <form id="contact-form" action="https://formsubmit.co/sangeetha451997@gmail.com" method="POST" data-astro-reload
-        enctype="multipart/form-data">
+      <!-- Toast (show/hide via JS) -->
+      <div id="contact-toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+      <!-- Use FormSubmit AJAX endpoint to avoid redirect (handle submit via fetch in JS) -->
+      <form
+        id="contact-form"
+        action="https://formsubmit.co/ajax/sangeetha451997@gmail.com"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <!-- honeypot -->
-        <input type="text" name="_honey" style="display: none;">
+        <input type="text" name="_honey" style="display:none;">
 
         <!-- disable captcha -->
         <input type="hidden" name="_captcha" value="false">
+
         <div class="row">
           <input type="text" name="first_name" placeholder="First name" required>
           <input type="text" name="last_name" placeholder="Last name" required>
@@ -505,8 +514,9 @@
 
         <button type="submit">Send Message</button>
 
-        <div id="form-status"></div>
+        <div id="form-status" aria-live="polite"></div>
       </form>
+
       <p class="terms">
         By contacting us, you agree to our
         <a href="#">Terms of service</a> and
@@ -613,8 +623,6 @@
     </div>
   </footer>
 
-  <!-- JS -->
-  <script src="static.js"></script>
 </body>
 
 </html>

@@ -2423,3 +2423,27 @@ footer .footer-bottom{
 
         /* END COURSES SECTION */
 
+
+        /* TOAST ON CONTACT FORM SUBMISSION */
+      
+.toast{
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid rgba(27, 106, 165, 0.22);
+  color: #22c55e;
+}
+.toast--success{
+  border-left: 6px solid #1b6aa5;
+}
+.toast--error{
+  border-left: 6px solid rgb(243 24 24);
+  border-color: rgba(243, 24, 24, 0.25);
+  color: rgb(243 24 24);
+}
+
+        /* END TOAST ON CONTACT FORM SUBMISSION */

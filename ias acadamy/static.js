@@ -1,285 +1,3 @@
-// /* VIDEO CAROUSEL */
-// const videoCarouselTrack = document.getElementById("videoCarouselTrack");
-// const videosCarousel = [
-//   {
-//     id: "ll08vZFexkQ",
-//     title: "Why UPSC PYQs Are Important?",
-//     thumb: "https://img.youtube.com/vi/ll08vZFexkQ/hqdefault.jpg"
-//   },
-//   {
-//     id: "7N2YQ9fbwlc",
-//     title: "UPSC Strategy 2026",
-//     thumb: "https://img.youtube.com/vi/7N2YQ9fbwlc/hqdefault.jpg"
-//   },
-//   {
-//     id: "aoXfzlWtez8",
-//     title: "Answer Writing Practice",
-//     thumb: "https://img.youtube.com/vi/aoXfzlWtez8/hqdefault.jpg"
-//   },
-//   {
-//     id: "tz6G0g4gBLI",
-//     title: "Current Affairs Analysis",
-//     thumb: "https://img.youtube.com/vi/tz6G0g4gBLI/hqdefault.jpg"
-//   },
-//   {
-//     id: "aHO53WCA7aA",
-//     title: "Prelims Revision Tips",
-//     thumb: "https://img.youtube.com/vi/aHO53WCA7aA/hqdefault.jpg"
-//   }
-// ];
-
-// let currentVideoIndex = 0;
-
-// if (videoCarouselTrack) {
-//   // Create video cards
-//   videosCarousel.forEach((video, i) => {
-//     const card = document.createElement("div");
-//     card.className = "video-card";
-//     if (i === 0) card.classList.add("active");
-//     card.innerHTML = `
-//       <img src="${video.thumb}" alt="${video.title}" class="video-thumb-img">
-//       <div class="play-btn" onclick="playVideoCarousel('${video.id}', this)">▶</div>
-//     `;
-//     videoCarouselTrack.appendChild(card);
-//   });
-
-//   function updateVideoCarousel() {
-//     const cards = document.querySelectorAll(".video-card");
-//     cards.forEach((card, i) => {
-//       card.classList.remove("active");
-      
-//       // Only show the active card
-//       if (i === currentVideoIndex) {
-//         card.classList.add("active");
-//       }
-//     });
-//   }
-
-//   function nextVideoSlide() {
-//     currentVideoIndex = (currentVideoIndex + 1) % videosCarousel.length;
-//     updateVideoCarousel();
-//   }
-
-//   function prevVideoSlide() {
-//     currentVideoIndex = (currentVideoIndex - 1 + videosCarousel.length) % videosCarousel.length;
-//     updateVideoCarousel();
-//   }
-
-//   function playVideoCarousel(videoId, element) {
-//     const card = element.closest(".video-card");
-//     const thumb = card.querySelector(".video-thumb-img");
-    
-//     // Hide only the play button
-//     element.style.display = "none";
-    
-//     // Create a container for the iframe
-//     const iframeContainer = document.createElement("div");
-//     iframeContainer.className = "video-iframe-container";
-//     iframeContainer.style.position = "absolute";
-//     iframeContainer.style.top = "0";
-//     iframeContainer.style.left = "0";
-//     iframeContainer.style.width = "100%";
-//     iframeContainer.style.height = "100%";
-//     iframeContainer.style.zIndex = "5";
-    
-//     const iframe = document.createElement("iframe");
-//     iframe.width = "100%";
-//     iframe.height = "100%";
-//     iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-//     iframe.frameborder = "0";
-//     iframe.allow = "autoplay; encrypted-media";
-//     iframe.allowFullscreen = true;
-//     iframe.style.borderRadius = "12px";
-    
-//     iframeContainer.appendChild(iframe);
-//     card.appendChild(iframeContainer);
-//   }
-
-//   updateVideoCarousel();
-// }
-
-// /* HERO SLIDER - MANUAL ONLY */
-// let currentHeroSlide = 0;
-// const heroSlides = document.querySelectorAll(".hero-slide");
-// const heroDots = document.querySelectorAll(".hero-dot");
-// const sliderWrapper = document.querySelector(".slider-wrapper");
-
-// function showHeroSlide(index) {
-//     // Wrap around
-//     if (index >= heroSlides.length) {
-//         currentHeroSlide = 0;
-//     } else if (index < 0) {
-//         currentHeroSlide = heroSlides.length - 1;
-//     } else {
-//         currentHeroSlide = index;
-//     }
-
-//     // Hide all slides
-//     heroSlides.forEach(slide => slide.classList.remove("active"));
-    
-//     // Show current slide
-//     heroSlides[currentHeroSlide].classList.add("active");
-
-//     // Update active dot
-//     heroDots.forEach(dot => dot.classList.remove("active"));
-//     heroDots[currentHeroSlide].classList.add("active");
-// }
-
-// function moveHeroSlide(direction) {
-//     showHeroSlide(currentHeroSlide + direction);
-// }
-
-// // Dot navigation
-// heroDots.forEach(dot => {
-//     dot.addEventListener("click", () => {
-//         showHeroSlide(parseInt(dot.dataset.slide));
-//     });
-// });
-
-// // Initialize - show first slide
-// showHeroSlide(0);
-
-
-// /* TESTIMONIAL SLIDER */
-// const track = document.getElementById("sliderTrack");
-// const dots = document.querySelectorAll(".dot");
-
-// if (track && dots.length > 0) {
-//     function goToSlide(index) {
-//       track.style.transform = `translateX(-${index * 100}%)`;
-
-//       dots.forEach(dot => dot.classList.remove("active"));
-//       dots[index].classList.add("active");
-//     }
-
-//     dots.forEach(dot => {
-//       dot.addEventListener("click", () => {
-//         goToSlide(dot.dataset.slide);
-//       });
-//     });
-// }
-// // email.......................................................................................................................................
-// // video editing section.....//
-// const videos = [
-//   {
-//     id: "ll08vZFexkQ",
-//     title: "Why UPSC PYQs Are Important?",
-//     desc: "The importance of UPSC PYQs | Vishakan Sir's IAS Coaching"
-//   },
-//   {
-//     id: "7N2YQ9fbwlc",
-//     title: "UPSC Strategy 2026",
-//     desc: "Complete preparation roadmap"
-//   },
-//   {
-//     id: "aoXfzlWtez8",
-//     title: "Answer Writing Practice",
-//     desc: "Improve Mains performance"
-//   },
-//   {
-//     id: "tz6G0g4gBLI",
-//     title: "Current Affairs Analysis",
-//     desc: "Monthly breakdown"
-//   },
-//   {
-//     id: "aHO53WCA7aA",
-//     title: "Prelims Revision Tips",
-//     desc: "Smart revision techniques"
-//   }
-// ];
-
-// const ytTrack = document.getElementById("ytTrack");
-// let active = 2;
-
-// // Define these OUTSIDE the if block
-// function nextSlide() {
-//   active = (active + 1) % videos.length;
-//   update();
-// }
-
-// function prevSlide() {
-//   active = (active - 1 + videos.length) % videos.length;
-//   update();
-// }
-
-// function update() {
-//   const cards = document.querySelectorAll(".yt-card");
-//   cards.forEach((c, i) => {
-//     c.classList.toggle("active", i === active);
-//   });
-// }
-
-// if (ytTrack) {
-//     /* Create cards */
-//     videos.forEach((v, i) => {
-//       const card = document.createElement("div");
-//       card.className = "yt-card";
-//       card.innerHTML = `
-//         <div class="thumb"
-//           style="background-image:url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg')"
-//           onclick="playVideo(this,'${v.id}')">
-//         </div>
-//         <div class="card-info">
-//           <h4>${v.title}</h4>
-//           <p>${v.desc}</p>
-//         </div>
-//       `;
-//       ytTrack.appendChild(card);
-//     });
-
-//     update();
-// }
-
-// /* Play video inline */
-// function playVideo(el, id) {
-//   el.innerHTML = `
-//     <iframe width="100%" height="100%"
-//       id="ytPlayer-${id}"
-//       src="https://www.youtube.com/embed/${id}?autoplay=1"
-//       frameborder="0"
-//       allow="autoplay; encrypted-media"
-//       allowfullscreen>
-//     </iframe>
-//   `;
-  
-//   // Pause video after 10 seconds
-//   setTimeout(() => {
-//     const iframe = document.getElementById(`ytPlayer-${id}`);
-//     if (iframe) {
-//       // YouTube iframe can't directly pause, so we disable pointer-events temporarily
-//       // Then re-enable after 10 seconds to allow button clicks
-//       iframe.style.pointerEvents = "none";
-      
-//       // Show a pause message
-//       const pauseMsg = document.createElement("div");
-//       pauseMsg.style.position = "absolute";
-//       pauseMsg.style.top = "50%";
-//       pauseMsg.style.left = "50%";
-//       pauseMsg.style.transform = "translate(-50%, -50%)";
-//       pauseMsg.style.background = "rgba(0,0,0,0.8)";
-//       pauseMsg.style.color = "white";
-//       pauseMsg.style.padding = "20px 40px";
-//       pauseMsg.style.borderRadius = "8px";
-//       pauseMsg.style.zIndex = "10";
-//       pauseMsg.textContent = "⏸ Video Paused - Use navigation buttons";
-      
-//       el.parentElement.style.position = "relative";
-//       el.parentElement.appendChild(pauseMsg);
-      
-//       // Re-enable buttons after pause
-//       setTimeout(() => {
-//         pauseMsg.remove();
-//       }, 2000);
-//     }
-//   }, 10000); // 10 seconds
-// }
-
-
-
-
-
-
-
 /* ============================
    VIDEO CAROUSEL (TOP)
 ============================ */
@@ -835,4 +553,70 @@ function manualPlay(index) {
   updateVideoCarousel();
   // Ensure titles match the real YouTube titles when possible
   hydrateYouTubeTitles();
+})();
+
+
+/* ============================
+   CONTACT FORM (Toast + AJAX)
+============================ */
+(() => {
+  // Prevent double-binding if static.js is loaded twice
+  if (window.__contactFormToastInit) return;
+  window.__contactFormToastInit = true;
+
+  const form = document.getElementById("contact-form");
+  const toast = document.getElementById("contact-toast");
+  const statusEl = document.getElementById("form-status");
+
+  if (!form || !toast) return;
+
+  let hideTimer = null;
+
+  function showToast(message, type) {
+    toast.textContent = message;
+    toast.hidden = false;
+
+    toast.classList.remove("toast--success", "toast--error");
+    toast.classList.add(type === "success" ? "toast--success" : "toast--error");
+
+    if (hideTimer) clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      toast.hidden = true;
+    }, 4000);
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (statusEl) statusEl.textContent = "";
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      let data = null;
+      try { data = await res.json(); } catch {}
+
+      if (!res.ok) throw new Error(data?.message || `Request failed (${res.status})`);
+
+      showToast("Email has been sent.", "success");
+
+      // this will set the bottom section of the form to success message
+      if (statusEl) statusEl.textContent = "";
+      
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      showToast("Failed to send email. Please try again.", "error");
+      if (statusEl) statusEl.textContent = "Failed to send email. Please try again.";
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
 })();
