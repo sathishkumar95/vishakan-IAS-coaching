@@ -1436,11 +1436,38 @@ nav a {
 ========================= */
 .video-section{
   text-align: center;
-  margin: 120px auto 0;
-  padding: 20px 0 10px;
+  margin: 100px 0 0;
+  padding: 70px 0 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #ffffff;
+  border-bottom: 12px solid #1B6AA5;
+}
+
+.video-title{
+  margin: 0;
+  padding: 0;
+  font-size: clamp(28px, 2.6vw, 44px);
+  font-weight: 800;
+  color: #1B6AA5;
+}
+
+.video-subtitle{
+  margin: 10px 0 0;
+  padding: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.5;
+  color: #6b7280 !important;
+}
+
+.video-underline{
+  display: block;
+  width: 64px;
+  height: 6px;
+  background: #1B6AA5;
+  border-radius: 999px;
+  margin: 18px auto 0;
 }
 
 /* container that holds arrows + carousel */
@@ -1451,7 +1478,7 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  padding: 0 78px; /* leaves room for arrows at both ends */
 }
 
 /* viewport area */
@@ -1480,16 +1507,21 @@ nav a {
   cursor: pointer;
   font-size: 22px;
   line-height: 1;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   user-select: none;
   z-index: 5000;              /* stay clickable above cards */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
 }
 .video-nav-btn:active{ transform: scale(0.98); }
 
-/* keep your "next" button at the right end */
 .video-nav-btn.video-next{
-  margin-left: auto;
+  left: auto;
+  right: 0;
 }
 
 /* card base (stacked like coverflow) */
@@ -1681,41 +1713,65 @@ nav a {
   width: 25%;
 }
 
-.contact-left h1,
+.contact-left {
+  padding-top: 8px;
+}
+
+.contact-left h1 {
+  padding: 0;
+  margin: 0;
+  color: #1b6aa5;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
 .contact-right h1 {
   color: #1b6aa5;
   font-size: 38px;
 }
 
-.underline {
-  width: 80px;
-  height: 5px;
+.contact-left .underline {
+  width: 120px;
+  height: 7px;
   background: #1b6aa5;
-  margin: 10px 0 20px;
-  border-radius: 10px;
+  margin: 14px 0 14px;
+  border-radius: 999px;
+  padding: 0;
 }
 
-.subtitle {
-  margin-bottom: 30px;
-  color: #666;
+
+.contact-left .subtitle {
+  padding: 0 !important;
+  margin: 0 0 34px;
+  color: #6b7280;
+  font-size: 16px !important;
+  line-height: 1.5;
 }
 
 .contact-left h3 {
+  padding: 0;
+  margin: 0 0 12px;
   color: #1b6aa5;
-  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .contact-left p {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #555;
+  padding: 0 !important;
+  margin: 0;
+  font-size: 14px !important;
+  line-height: 1.9;
+  color: #6b7280;
 }
 
 /* ICON BOX */
 .contact-icons {
   display: flex;
-  gap: 40px;
-  margin-top: 30px;
+  justify-content: space-between;
+  gap: 90px;
+  margin-top: 70px;
+  max-width: 520px;
 }
 
 .contact-icons div {
@@ -1725,9 +1781,28 @@ nav a {
 .contact-icons i {
   background: #1b6aa5;
   color: #fff;
-  padding: 16px;
-  border-radius: 50%;
-  margin-bottom: 8px;
+  width: 82px;
+  height: 82px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  font-size: 28px;
+  padding: 0;
+}
+
+.contact-icons span {
+  display: block;
+  color: #1b6aa5;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.contact-icons small {
+  display: block;
+  color: #111827;
+  font-size: 14px;
 }
 
 /* CENTER FORM */
@@ -1778,10 +1853,29 @@ button {
   cursor: pointer;
 }
 
-.terms {
-  margin-top: 12px;
-  font-size: 12px;
-  color: #777;
+/* Match reference sizing for the contact form submit button */
+.contact-form-card button[type="submit"] {
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* Match reference: small, higher-contrast disclaimer under submit */
+.contact-form-card .terms {
+  margin-top: 10px;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.35;
+  color: #6b7280 !important;
+}
+
+.contact-form-card .terms a {
+  color: #111827;
+  font-weight: 600;
+}
+
+.contact-form-card .terms a:hover {
+  text-decoration: underline;
 }
 
 /* RIGHT */
@@ -2226,11 +2320,62 @@ footer ul li i{
   width: 30px;
   height: 30px;
   border-radius: 999px;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255,255,255,0.15);
   color: #ffffff;
   flex: 0 0 30px;
+  line-height: 1;
+  text-align: center;
+}
+
+/* Footer markup uses a wrapper: <span class="icon-circle"><i class="fa-..."></i></span>
+   Center icons inside the circle reliably (webfont or svg FA). */
+footer .icon-circle{
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  flex: 0 0 30px;
+}
+
+footer .icon-circle i{
+  width: auto;
+  height: auto;
+  background: transparent;
+  flex: 0 0 auto;
+  line-height: 1;
+  font-size: 14px;
+}
+
+footer .icon-circle i::before{
+  line-height: 1;
+}
+
+footer .icon-circle svg{
+  display: block;
+}
+
+/* footer icon colors */
+footer .icon-circle.icon-facebook{ background: #1877F2; }
+footer .icon-circle.icon-instagram{
+  background: radial-gradient(circle at 30% 30%, #feda75, #d62976 45%, #4f5bd5);
+}
+footer .icon-circle.icon-telegram{ background: #229ED9; }
+footer .icon-circle.icon-whatsapp{ background: #25D366; }
+footer .icon-circle.icon-youtube{ background: #FF0000; }
+
+footer ul li i::before{
+  line-height: 1;
+}
+
+footer ul li i > svg{
+  display: block;
 }
 
 /* bottom copyright */
@@ -2253,16 +2398,24 @@ footer .footer-bottom{
 }
 
 /* Contact section "Follow Us" (right side) - bigger text + colored icons */
+.contact-right .footer-box ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the whole list */
+}
+
 .contact-right .footer-box ul li{
   display: flex;
   align-items: center;
   gap: 14px;
   margin: 12px 0;
-  font-size: 16px; /* ✅ increased */
+  font-size: 18px;
+  justify-content: flex-start;
+  width: min(320px, 100%); /* keeps all rows aligned */
 }
 
 .contact-right .footer-box ul li a{
-  font-size: 16px; /* ✅ increased */
+  font-size: 18px;
   color: #0f172a;  /* adjust if your right panel is dark */
   text-decoration: none;
 }
@@ -2272,14 +2425,25 @@ footer .footer-bottom{
 
 /* turn the <i> into a colored circular badge */
 .contact-right .footer-box ul li i{
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
-  flex: 0 0 34px;
-  font-size: 16px;
+  flex: 0 0 40px;
+  font-size: 29px;
+  line-height: 1;
+  text-align: center;
+}
+
+.contact-right .footer-box ul li i::before{
+  line-height: 1;
+}
+
+.contact-right .footer-box ul li i > svg{
+  display: block;
 }
 
 /* brand colors (Font Awesome adds these classes on the <i>) */
@@ -2345,6 +2509,7 @@ footer .footer-bottom{
   border-radius: 8px;
   padding: 30px 25px;
   text-align: left;
+  align-content: flex-end;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
@@ -2417,7 +2582,7 @@ footer .footer-bottom{
   left: 0;
   width: 100%;
   height: 4px;          /* thickness */
-  background: #f4b400; /* color */
+  background: #1b6aa5; /* color */
   border-radius: 8px 8px 0 0;
 }
 
