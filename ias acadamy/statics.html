@@ -21,7 +21,9 @@
     <script src=
 "https://unpkg.com/swiper@7.4.1/swiper-bundle.min.js">
     </script>
-    <!--link swiper end  -->
+
+  <!-- ✅ make sure your site JS loads -->
+  <script src="./static.js" defer></script>
 </head>
 <body>
 
@@ -230,21 +232,61 @@
 
 
 
-    <!-- TESTIMONIAL SLIDER -->
-    <section id="testimonials" class="testimonials container">
-        <h2>What Students Say</h2>
+    <!-- TESTIMONIALS (Achievers) -->
+<section id="testimonials" class="achievers-section">
+  <div class="container">
+    <h2 class="achievers-title">Hear From Our Achievers</h2>
+    <p class="achievers-subtitle">Stories of dedication, strategy, and success.</p>
+    <span class="achievers-underline" aria-hidden="true"></span>
 
-        <div class="slider" id="slider">
-            <div class="slide">“Amazing classes! Very clear explanations.” — Vijay, Chennai</div>
-            <div class="slide">“The best Psychology Optional mentor.” — Kumar</div>
-            <div class="slide">“Mentorship helped me clear UPSC stages.” — Priya</div>
+    <div class="achievers-grid">
+      <article class="achiever-card">
+        <div class="achiever-avatar" aria-hidden="true">
+          <span>PS</span>
         </div>
 
-        <div class="slider-buttons">
-            <button id="prev">❮</button>
-            <button id="next">❯</button>
+        <p class="achiever-quote">
+          “Vishakan sir’s guidance was the cornerstone of my preparation. His ability to simplify complex topics
+          and his psychological insights for handling exam pressure were game-changers for me. I owe my success
+          to his mentorship.”
+        </p>
+
+        <h3 class="achiever-name">Priya Sharma</h3>
+        <p class="achiever-rank">IAS, Rank 23</p>
+      </article>
+
+      <article class="achiever-card">
+        <div class="achiever-avatar" aria-hidden="true">
+          <span>AV</span>
         </div>
-    </section>
+
+        <p class="achiever-quote">
+          “The answer writing practice and personalized feedback at the academy are unparalleled. Sir’s direct
+          experience with the Mains and Interview stages provided a realistic and strategic approach that you
+          just can’t find anywhere else.”
+        </p>
+
+        <h3 class="achiever-name">Arjun Verma</h3>
+        <p class="achiever-rank">IPS, Rank 58</p>
+      </article>
+
+      <article class="achiever-card">
+        <div class="achiever-avatar" aria-hidden="true">
+          <span>AS</span>
+        </div>
+
+        <p class="achiever-quote">
+          “I was a regular follower of Vishakan sir’s YouTube channel before joining. The offline classes
+          exceeded all my expectations. The focus is not just on completing the syllabus but on building a
+          true officer-like thought process.”
+        </p>
+
+        <h3 class="achiever-name">Anjali Singh</h3>
+        <p class="achiever-rank">IFS, Rank 81</p>
+      </article>
+    </div>
+  </div>
+</section>
 
 
  <!--contact section ------------------------------------------------------------------------------------------------------------ -->
@@ -344,44 +386,69 @@
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer>
+<footer class="site-footer">
   <div class="footer-container">
 
-    <!-- Logo -->
-    <div class="footer-box">
-      <a href="#home">
-        <img src="./Vishakan assets/Logo Vishakan.png" alt="Vishakan IAS Academy Logo">
-      </a>
-      <p>Your trusted partner in the journey to becoming a civil servant.</p>
+    <!-- 1) Academy -->
+    <div class="footer-col footer-about">
+      <h3 class="footer-title">Vishakan’s IAS Academy</h3>
+      <p class="footer-text">
+        Your trusted partner in the<br>
+        journey to becoming a civil<br>
+        servant.
+      </p>
     </div>
 
-    <!-- Links -->
-    <div class="footer-box">
-      <h1>Quick Links</h1>
-     <ul>
+    <!-- 2) Quick Links -->
+    <div class="footer-col footer-links">
+      <h3 class="footer-title">Quick Links</h3>
+      <ul class="footer-list">
         <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#courses">Courses</a></li>
-        <li><a href="#why">Why Psychology?</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contacts Us</a></li>
-          <li>  <a href="#about">About</a></li>
-     </ul>
-    </div>
-
-    <!-- Social -->
-    <div class="contact-right">
-      <h1>Follow Us</h1>
-      <ul>
-        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></li>
-        <li><i class="fa-brands fa-facebook"></i> <a href="https://www.facebook.com/vishakansirsclasses/" target="_blank">Facebook</a></li>
-        <li><i class="fa-brands fa-twitter"></i> <a href="https://twitter.com/vishakansirsclasses" target="_blank">Twitter</a></li>
-        <li><i class="fa-brands fa-youtube"></i> <a href="https://www.youtube.com/channel/UCqRy4l9yhHSqoD-_k3LR5BA" target="_blank">YouTube</a></li>
-        <li><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/vishakansirsclasses/" target="_blank">Instagram</a></li>
-        <li><i class="fa-brands fa-telegram"></i> <a href="https://t.me/vishakan_raman" target="_blank">Telegram</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
 
-  </div> 
+    <!-- 3) Follow Us (left social column like reference) -->
+    <div class="footer-col footer-social">
+      <h3 class="footer-title">Follow Us</h3>
+      <ul class="footer-list footer-list-icons">
+        <li>
+          <span class="icon-circle icon-facebook"><i class="fa-brands fa-facebook-f"></i></span>
+          <span class="footer-handle">vishakansirsclasses</span>
+        </li>
+        <li>
+          <span class="icon-circle icon-instagram"><i class="fa-brands fa-instagram"></i></span>
+          <span class="footer-handle">vishakansirsclasses</span>
+        </li>
+        <li>
+          <span class="icon-circle icon-telegram"><i class="fa-brands fa-telegram"></i></span>
+          <span class="footer-handle">vishakansirsclasses</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 4) Right contact column like reference (WhatsApp + YouTube) -->
+    <div class="footer-col footer-contact">
+      <ul class="footer-list footer-list-icons footer-contact-list">
+        <li>
+          <span class="icon-circle icon-whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+          <span class="footer-handle">+91 12345 67890</span>
+        </li>
+        <li>
+          <span class="icon-circle icon-youtube"><i class="fa-brands fa-youtube"></i></span>
+          <span class="footer-handle">Vishagan Sir Classes</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    Copyright © 2025 Vishakan Sir Classes. All Rights Reserved by Vishakan Sir Classes.
+  </div>
 </footer>
 
     <!-- JS -->

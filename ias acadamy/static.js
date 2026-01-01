@@ -314,15 +314,21 @@ if (videoCarouselTrack) {
 ============================ */
 function playVideoCarousel(videoId, el) {
   const card = el.closest(".video-card");
+  if (!card) return;
+
+  // hide play button
   el.style.display = "none";
 
+  // remove thumbnail image so iframe is visible
+  const img = card.querySelector("img");
+  if (img) img.style.display = "none";
+
   const iframe = document.createElement("iframe");
-  // ✅ removed mute=1 so sound can play on user click
-  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&loop=1&playlist=${videoId}`;
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1`;
   iframe.allow = "autoplay; encrypted-media; picture-in-picture";
   iframe.allowFullscreen = true;
   iframe.style.width = "100%";
-  iframe.style.height = "100%";
+  iframe.style.height = "360px";
   iframe.style.border = "0";
 
   card.appendChild(iframe);
