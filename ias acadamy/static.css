@@ -1485,7 +1485,7 @@ nav a {
 .video-carousel-wrapper{
   position: relative;
   width: 100%;
-  height: 520px;              /* overall carousel height */
+  height: 470px;              /* overall carousel height (reduced frame) */
   overflow: visible;          /* so side cards can show */
 }
 
@@ -1529,10 +1529,10 @@ nav a {
   position: absolute;
   left: 50%;
   top: 0;
-  width: min(760px, 78vw);
-  border-radius: 18px;
+  width: min(680px, 74vw);
+  border-radius: 14px;
   background: #fff;
-  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.14);
+  box-shadow: 0 14px 40px rgba(2, 6, 23, 0.12);
   transform: translateX(-50%) scale(0.86);
   opacity: 0;
   pointer-events: none;
@@ -1543,7 +1543,7 @@ nav a {
 /* thumbnail image */
 .video-thumb-img{
   width: 100%;
-  height: 360px;
+  height: 320px;
   object-fit: cover;
   display: block;
 }
@@ -1552,7 +1552,7 @@ nav a {
 .video-card .play-btn{
   position: absolute;
   left: 49%;
-  top: 162px;                /* center of the 360px thumb */
+  top: 160px;                /* center of the 320px thumb */
   transform: translate(-50%, -50%);
   width: 78px;
   height: 52px;
@@ -1572,9 +1572,9 @@ nav a {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 360px;              /* match thumb height */
+  height: 320px;              /* match thumb height */
   border: 0;
-  border-radius: 18px 18px 0 0;
+  border-radius: 14px 14px 0 0;
   z-index: 9;
 }
 
@@ -1589,46 +1589,46 @@ nav a {
 
 .video-card.prev{
   opacity: 0.55;
-  transform: translateX(-50%) translateX(-320px) scale(0.92);
+  transform: translateX(-50%) translateX(-280px) scale(0.92);
   z-index: 3;
 }
 
 .video-card.next{
   opacity: 0.55;
-  transform: translateX(-50%) translateX(320px) scale(0.92);
+  transform: translateX(-50%) translateX(280px) scale(0.92);
   z-index: 3;
 }
 
 .video-card.prev2{
   opacity: 0.22;
-  transform: translateX(-50%) translateX(-560px) scale(0.84);
+  transform: translateX(-50%) translateX(-480px) scale(0.84);
   z-index: 2;
 }
 
 .video-card.next2{
   opacity: 0.22;
-  transform: translateX(-50%) translateX(560px) scale(0.84);
+  transform: translateX(-50%) translateX(480px) scale(0.84);
   z-index: 2;
 }
 
 /* Responsive tweaks */
 @media (max-width: 900px){
-  .video-carousel-wrapper{ height: 460px; }
-  .video-thumb-img{ height: 300px; }
-  .video-card iframe{ height: 300px; }
-  .video-card .play-btn{ top: 150px; }
-  .video-card.prev{ transform: translateX(-50%) translateX(-220px) scale(0.92); }
-  .video-card.next{ transform: translateX(-50%) translateX(220px) scale(0.92); }
-  .video-card.prev2{ transform: translateX(-50%) translateX(-360px) scale(0.84); }
-  .video-card.next2{ transform: translateX(-50%) translateX(360px) scale(0.84); }
+  .video-carousel-wrapper{ height: 420px; }
+  .video-thumb-img{ height: 270px; }
+  .video-card iframe{ height: 270px; }
+  .video-card .play-btn{ top: 135px; }
+  .video-card.prev{ transform: translateX(-50%) translateX(-200px) scale(0.92); }
+  .video-card.next{ transform: translateX(-50%) translateX(200px) scale(0.92); }
+  .video-card.prev2{ transform: translateX(-50%) translateX(-320px) scale(0.84); }
+  .video-card.next2{ transform: translateX(-50%) translateX(320px) scale(0.84); }
 }
 
 @media (max-width: 560px){
   .video-nav-btn{ width: 46px; height: 46px; }
-  .video-carousel-wrapper{ height: 400px; }
-  .video-thumb-img{ height: 260px; }
-  .video-card iframe{ height: 260px; }
-  .video-card .play-btn{ top: 130px; }
+  .video-carousel-wrapper{ height: 360px; }
+  .video-thumb-img{ height: 240px; }
+  .video-card iframe{ height: 240px; }
+  .video-card .play-btn{ top: 120px; }
 }
 
 /* SLIDER */
@@ -2058,7 +2058,7 @@ footer {
 /* THUMBNAIL */
 .thumb {
   position: relative;
-  height: 317px;
+  height: 353px;
   background-size: cover;
   background-position: center;
   cursor: pointer;
