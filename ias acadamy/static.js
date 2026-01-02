@@ -417,7 +417,8 @@ function manualPlay(index) {
       // ✅ mark the centered card as active
       card.classList.toggle("active", d === 0);
 
-      if (Math.abs(d) > 2) {
+      // Show only 3 cards: center + immediate left/right
+      if (Math.abs(d) > 1) {
         card.style.opacity = "0";
         card.style.pointerEvents = "none";
         card.style.transform = `translateX(-50%) translateX(${d * 360}px) scale(0.75)`;
@@ -426,13 +427,17 @@ function manualPlay(index) {
       }
 
       const x = d * 340;
-      const scale = d === 0 ? 1 : Math.abs(d) === 1 ? 0.9 : 0.82;
-      const opacity = d === 0 ? 1 : Math.abs(d) === 1 ? 0.55 : 0.28;
+      const scale = d === 0 ? 1.06 : 0.88;
+      const opacity = d === 0 ? 1 : 0.40;
 
       card.style.opacity = String(opacity);
       card.style.pointerEvents = "auto";
       card.style.zIndex = String(100 - Math.abs(d));
       card.style.transform = `translateX(-50%) translateX(${x}px) scale(${scale})`;
+      card.style.filter = d === 0 ? "none" : "brightness(0.92) saturate(0.9)";
+      card.style.boxShadow = d === 0
+        ? "0 18px 55px rgba(2, 6, 23, 0.22)"
+        : "0 14px 40px rgba(2, 6, 23, 0.12)";
 
       card.onclick = () => {
         currentVideoIndex = i;
@@ -531,12 +536,11 @@ function manualPlay(index) {
     card.className = "video-card";
     card.innerHTML = `
       <div class="thumb">
-        <img src="${video.thumb}" data-youtube-alt="${video.id}" alt="${video.title}">
+        <img class="video-thumb-img" src="${video.thumb}" data-youtube-alt="${video.id}" alt="${video.title}">
         <div class="play-btn"><span>▶</span></div>
       </div>
       <div class="meta">
         <h3 data-youtube-title="${video.id}">${video.title}</h3>
-        <p>${video.desc ?? ""}</p>
       </div>
     `;
 

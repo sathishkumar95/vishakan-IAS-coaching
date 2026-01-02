@@ -1458,7 +1458,7 @@ nav a {
   flex-direction: column;
   align-items: center;
   background: #ffffff;
-  border-bottom: 12px solid var(--color-primary);
+  border-bottom: 33px solid var(--color-primary);
 }
 
 .video-title{
@@ -1532,6 +1532,7 @@ nav a {
   top: 0;
   width: min(680px, 74vw);
   border-radius: 14px;
+  border: 1px solid #ffffff;
   background: #fff;
   box-shadow: 0 14px 40px rgba(2, 6, 23, 0.12);
   transform: translateX(-50%) scale(0.86);
@@ -1547,6 +1548,20 @@ nav a {
   height: 320px;
   object-fit: cover;
   display: block;
+}
+
+/* title area under thumbnail (no description paragraph) */
+.video-card .meta{
+  padding: 14px 16px 16px;
+  background: #ffffff;
+}
+
+.video-card .meta h3{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0a1a33;
 }
 
 /* play button overlay (YouTube-like) */
@@ -1710,22 +1725,23 @@ nav a {
 /* contact us and footer */
 /* CONTACT WRAPPER */
 .contact-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: min(1200px, 92vw);
-  margin: 0 auto;
-  padding: 70px 0;
-  gap: 70px;
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 520px) 1fr;
+  align-items: start;
+  width: 100%;
+  padding: 70px 80px;
+  column-gap: 70px;
 }
 
 /* LEFT */
 .contact-left,
 .contact-right {
-  flex: 1 1 0;
-  width: auto;
-  max-width: 360px;
+  width: 100%;
+ max-width: 337px;
 }
+
+.contact-left { justify-self: anchor-center; }
+.contact-right { justify-self: anchor-center; }
 
 .contact-left {
   padding-top: 8px;
@@ -1819,14 +1835,14 @@ nav a {
   display: block;
   color: #111827;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 /* CENTER FORM */
 .contact-form-card {
-  flex: 0 0 min(520px, 100%);
-  width: auto;
+  width: 100%;
   max-width: 520px;
-  margin: 0 auto;
+  justify-self: center;
   background: #fff;
   padding: 34px 36px 28px;
   border-radius: 22px;
@@ -1848,7 +1864,7 @@ nav a {
 
 .contact-form-card input,
 .contact-form-card textarea {
-  width: 100%;
+  width:  95%;
   padding: 12px;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -2116,7 +2132,7 @@ footer {
 /* THUMBNAIL */
 .thumb {
   position: relative;
-  height: 353px;
+  height: 371px;
   background-size: cover;
   background-position: center;
   cursor: pointer;
@@ -2208,6 +2224,7 @@ footer {
 .achievers-section{
   padding: 70px 0 90px;
   background: #ffffff;
+  border-bottom: 27px solid var(--color-primary);
 }
 
 .achievers-title{
@@ -2264,6 +2281,26 @@ footer {
   font-weight: 800;
   letter-spacing: 0.5px;
   user-select: none;
+  overflow: hidden;
+}
+
+.achiever-avatar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* If an avatar image exists, hide the initials; if the image fails it removes itself via onerror, so initials show */
+.achiever-avatar-img + span{
+  display: none;
+}
+
+.achiever-avatar span{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .achiever-quote{
@@ -2283,7 +2320,7 @@ footer {
 }
 
 .achiever-rank{
-  margin: 6px 0 0;
+  margin: -36px 0 0;
   color: #1976d2;
   font-size: 12px;
   font-weight: 700;
@@ -2626,16 +2663,25 @@ footer ul li i > svg{
 .card ul li {
   font-size: 14px;
   margin-bottom: 12px;
-  padding-left: 24px;
+  padding-left: 28px;
   position: relative;
 }
 
 .card ul li::before {
-  content: "✔";
+  content: "✓";
   position: absolute;
   left: 0;
-  color: #22c55e;
-  font-size: 14px;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .card button {
