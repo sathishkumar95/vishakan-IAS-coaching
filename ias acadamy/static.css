@@ -2251,13 +2251,13 @@ footer {
 /* =========================
    FOOTER (Reference style)
 ========================= */
-footer{
+.site-footer{
   background: #1B6AA5;              /* reference blue */
   color: #ffffff;
   padding: 48px 0 18px;
 }
 
-footer .footer-container{
+.site-footer .footer-container{
   width: min(1200px, 92vw);
   margin: 0 auto;
   display: flex;
@@ -2267,10 +2267,22 @@ footer .footer-container{
 }
 
 /* columns */
-footer .footer-box,
-footer .contact-right{
-  flex: 1 1 0;
+.site-footer .footer-col{
+  flex: 0 0 auto;
   min-width: 220px;
+}
+
+.site-footer .footer-about{ width: min(320px, 100%); }
+.site-footer .footer-links{ width: min(220px, 100%); }
+.site-footer .footer-social{ width: min(300px, 100%); }
+.site-footer .footer-contact{ width: min(300px, 100%); }
+
+.site-footer .footer-title{
+  margin: 0 0 14px;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
 }
 
 footer .footer-box img{
@@ -2281,7 +2293,7 @@ footer .footer-box img{
 }
 
 /* text reset (in case global p is large) */
-footer p{
+.site-footer p{
   margin: 0;
   color: rgba(255,255,255,0.92);
   font-size: 14px;
@@ -2289,35 +2301,50 @@ footer p{
   padding: 0; /* overrides your global p padding */
 }
 
-footer h1{
-  margin: 0 0 14px;
-  font-size: 18px;
-  font-weight: 800;
-  color: #ffffff;
-}
+.site-footer h3{ padding: 0; }
 
 /* lists */
-footer ul{
+.site-footer ul{
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-footer ul li{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 10px 0;
+.site-footer .footer-list li{
+  margin: 8px 0;
   color: rgba(255,255,255,0.95);
   font-size: 14px;
 }
 
+/* Quick links: simple vertical list */
+.site-footer .footer-links .footer-list li{
+  display: block;
+}
+
+/* Follow/contact icons: fixed icon column so everything lines up */
+.site-footer .footer-list-icons li{
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 14px;
+  align-items: center;
+}
+
+.site-footer .footer-handle{
+  display: block;
+  line-height: 1.3;
+}
+
+/* Right contact column has no title in HTML; align it with first icon row */
+.site-footer .footer-contact-list{
+  margin-top: 32px;
+}
+
 /* links */
-footer a{
+.site-footer a{
   color: rgba(255,255,255,0.95);
   text-decoration: none;
 }
-footer a:hover{
+.site-footer a:hover{
   text-decoration: underline;
 }
 
@@ -2338,7 +2365,7 @@ footer ul li i{
 
 /* Footer markup uses a wrapper: <span class="icon-circle"><i class="fa-..."></i></span>
    Center icons inside the circle reliably (webfont or svg FA). */
-footer .icon-circle{
+.site-footer .icon-circle{
   width: 30px;
   height: 30px;
   border-radius: 999px;
@@ -2350,7 +2377,7 @@ footer .icon-circle{
   flex: 0 0 30px;
 }
 
-footer .icon-circle i{
+.site-footer .icon-circle i{
   width: auto;
   height: auto;
   background: transparent;
@@ -2359,22 +2386,22 @@ footer .icon-circle i{
   font-size: 14px;
 }
 
-footer .icon-circle i::before{
+.site-footer .icon-circle i::before{
   line-height: 1;
 }
 
-footer .icon-circle svg{
+.site-footer .icon-circle svg{
   display: block;
 }
 
 /* footer icon colors */
-footer .icon-circle.icon-facebook{ background: #1877F2; }
-footer .icon-circle.icon-instagram{
+.site-footer .icon-circle.icon-facebook{ background: #1877F2; }
+.site-footer .icon-circle.icon-instagram{
   background: radial-gradient(circle at 30% 30%, #feda75, #d62976 45%, #4f5bd5);
 }
-footer .icon-circle.icon-telegram{ background: #229ED9; }
-footer .icon-circle.icon-whatsapp{ background: #25D366; }
-footer .icon-circle.icon-youtube{ background: #FF0000; }
+.site-footer .icon-circle.icon-telegram{ background: #229ED9; }
+.site-footer .icon-circle.icon-whatsapp{ background: #25D366; }
+.site-footer .icon-circle.icon-youtube{ background: #FF0000; }
 
 footer ul li i::before{
   line-height: 1;
@@ -2385,7 +2412,7 @@ footer ul li i > svg{
 }
 
 /* bottom copyright */
-footer .footer-bottom{
+.site-footer .footer-bottom{
   width: min(1200px, 92vw);
   margin: 26px auto 0;
   padding-top: 14px;
@@ -2397,9 +2424,13 @@ footer .footer-bottom{
 
 /* responsive */
 @media (max-width: 900px){
-  footer .footer-container{
+  .site-footer .footer-container{
     flex-direction: column;
     gap: 28px;
+  }
+
+  .site-footer .footer-contact-list{
+    margin-top: 0;
   }
 }
 
