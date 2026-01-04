@@ -99,8 +99,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  min-height: 78px;
-  gap: 28px;
+  min-height: 96px;
+  gap: 34px;
 }
 
 .logo-area {
@@ -110,14 +110,14 @@ header {
 }
 
 .logo {
-    width: 60px;
+    width: 74px;
 }
 
 .logo-area h2 {
   padding: 0;
   margin: 0;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 800;
   line-height: 1.2;
   color: var(--color-primary);
   white-space: nowrap;
@@ -125,25 +125,27 @@ header {
 
 .nav nav {
   flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 44px;
+    gap: 54px;
     align-items: center;
     justify-content: center;
     width: 100%;
     margin: 0;
     padding: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 nav a {
     font-weight: 600;
     /* color: #0a1a33; */
   color: var(--color-primary);
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0.1px;
 }
 
@@ -175,7 +177,8 @@ nav a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 34px;
+  padding: 14px 46px;
+  font-size: 18px;
   white-space: nowrap;
 }
 
