@@ -1004,11 +1004,11 @@ nav a:hover {
 }
 
 .why-container p {
-  padding: 0 !important;
-  margin-top: 12px;
-  font-size: 16px;
-  line-height: 1.5;
-    color: #d7e2f2; /* soft white/blue */
+padding: 0 !important;
+    margin-top: -17px;
+    font-size: 18px;
+    /* line-height: 0; */
+    color: #d7e2f2;
 }
 
 .why-underline {
@@ -1240,7 +1240,7 @@ nav a:hover {
   }
 
   .why-cards-section {
-        padding: 1px 0 33px;
+        padding: 26px 0 33px;
         width: 73%;
     }
 
@@ -1629,7 +1629,7 @@ nav a:hover {
 .video-carousel-container{
   position: relative;
   width: min(1200px, 92vw);
-  margin: 28px auto 0;
+  margin: 42px auto -76px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1700,7 +1700,7 @@ nav a:hover {
   padding: 0;
   font-size: 16px;
   font-weight: 800;
-  color: #0a1a33;
+  color: var(--color-primary);
 }
 
 /* play button overlay (YouTube-like) */
@@ -1788,10 +1788,10 @@ nav a:hover {
   }
 
   .video-nav-btn{ width: 46px; height: 46px; }
-  .video-carousel-wrapper{ height: 310px; }
+  .video-carousel-wrapper{ height: 438px; }
   .video-thumb-img{ height: 190px; }
   .video-card iframe{ height: 190px; }
-  .video-card .play-btn{ top: 95px; }
+  .video-card .play-btn{ top: 159px; }
 }
 
 /* SLIDER */
