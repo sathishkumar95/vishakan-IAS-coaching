@@ -1252,7 +1252,8 @@ padding: 0 !important;
 
   /* Achievers */
   .achievers-section {
-    padding: 55px 0 70px;
+        width: 75%;
+        height: 33%; 
   }
 
   /* Contact */
@@ -1634,7 +1635,7 @@ padding: 0 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 78px; /* leaves room for arrows at both ends */
+  padding: 49px 78px; /* leaves room for arrows at both ends */
 }
 
 /* viewport area */
@@ -1781,7 +1782,7 @@ padding: 0 !important;
 
 @media (max-width: 560px){
   .video-carousel-container{
-    padding: 0 46px; /* more room for content on small screens */
+            padding: 77px 46px; /* more room for content on small screens */
   }
 
   .video-card{
