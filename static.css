@@ -1879,6 +1879,7 @@ padding: 0 !important;
   width: 100%;
   padding: var(--page-pad-y) var(--page-pad-x);
   column-gap: 70px;
+  border-top: 33px solid var(--color-primary);
 }
 
 /* LEFT */
@@ -2382,7 +2383,7 @@ footer {
 .achievers-section{
   padding: 0px 0 90px;
   background: #ffffff;
-  border-bottom: 27px solid var(--color-primary);
+  /* border-bottom: 27px solid var(--color-primary); */
 }
 
 .achievers-title{
