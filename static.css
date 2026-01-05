@@ -1240,8 +1240,9 @@ nav a:hover {
   }
 
   .why-cards-section {
-    padding: 30px 0 50px;
-  }
+        padding: 1px 0 24px;
+        width: 73%;
+    }
 
   /* Video carousel top spacing */
   .video-section {
