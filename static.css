@@ -2747,8 +2747,12 @@ footer ul li i > svg{
 .courses {
   max-width: 1354px;
   margin: 60px auto;
-  padding: 0 var(--page-pad-x);
+  padding: 26px var(--page-pad-x) 40px;
   text-align: center;
+  background: #ffffff;
+  border: 1px solid rgba(2, 6, 23, 0.08);
+  box-shadow: 0px 14px 40px rgba(2, 6, 23, 0.10);
+  border-radius: 18px;
 }
 
 .courses h1 {
