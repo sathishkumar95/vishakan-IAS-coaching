@@ -93,7 +93,7 @@ p {
     line-height: 1;
   color: var(--color-primary);
     padding: 1rem   !important; 
-    font-size: 20px !important;
+    /* font-size: 20px !important; */
 
 }
 
@@ -2418,7 +2418,7 @@ footer {
    ACHIEVERS TESTIMONIALS
 ========================= */
 .achievers-section{
-  padding: 70px 0 90px;
+  padding: 0px 0 90px;
   background: #ffffff;
   border-bottom: 27px solid var(--color-primary);
 }
