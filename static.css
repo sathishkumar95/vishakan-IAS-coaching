@@ -366,13 +366,13 @@ nav a:hover {
 .about-founder-media::before {
   content: "";
   position: absolute;
-  width: 420px;
-  height: 420px;
+  width: 250px;
+  height: 250px;
   background: var(--color-primary);
   border-radius: 16px;
   transform: rotate(45deg);
-  left: 15px;
-  top: 10px;
+  left: 82px;
+  top: 117px;
   z-index: 0;
 }
 
