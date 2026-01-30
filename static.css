@@ -1328,14 +1328,15 @@ padding: 0 !important;
     row-gap: 28px;
     /* padding: var(--page-pad-y) var(--page-pad-x); */
     width: 100%;
-    justify-items: stretch;
+    justify-items: center;
     padding: 10px;
   }
 
   /* Mobile order: left -> form -> right */
   .contact-left { 
     grid-row: 1; 
-    padding-left: 49px;
+    padding-left: 0;
+    text-align: center;
   }
   .contact-form-card { 
         grid-row: 2;
@@ -1344,7 +1345,8 @@ padding: 0 !important;
   }
   .contact-right {
      grid-row: 3;
-     padding-left: 49px;
+     padding-left: 0;
+     text-align: center;
     }
 
   .contact-icons {
@@ -1358,7 +1360,15 @@ padding: 0 !important;
   .contact-right,
   .contact-form-card {
     width: 100%;
-    max-width: none;
+    max-width: 520px;
+  }
+
+  .contact-form-card {
+    margin: 0 auto;
+  }
+
+  .contact-right .footer-box li{
+    justify-content: center;
   }
 
   
@@ -2633,11 +2643,22 @@ footer {
   overflow: hidden;
 }
 
+/* Neha avatar: show full artwork (no crop) */
+.achiever-avatar--neha{
+  background: #ffffff;
+}
+
 .achiever-avatar-img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.achiever-avatar-img--neha{
+  object-fit: contain;
+  padding: 6px;
+  background: #ffffff;
 }
 
 /* If an avatar image exists, hide the initials; if the image fails it removes itself via onerror, so initials show */
@@ -3044,7 +3065,8 @@ footer ul li i > svg{
   font-weight: 800;
 }
 
-.card button {
+.card button,
+.card .course-enquire-btn {
   width: 100%;
   padding: 12px 0;
   background: var(--color-primary);
@@ -3054,9 +3076,13 @@ footer ul li i > svg{
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card button:hover {
+.card button:hover,
+.card .course-enquire-btn:hover {
   background: #0b2145;
 }
 
