@@ -1090,6 +1090,28 @@ padding: 0 !important;
 /* Responsive (Tablet & below): applies for screens <= 1024px */
 @media (max-width: 1024px) {
   /* NAV */
+  .top-bar .container.nav {
+    border-bottom-width: 6px;
+  }
+
+  .nav {
+    min-height: 76px;
+  }
+
+  .logo-area {
+    gap: 10px;
+  }
+
+  .logo {
+    width: 58px;
+  }
+
+  .logo-area h2 {
+    font-size: 22px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
   nav ul {
     gap: 16px;
     flex-wrap: wrap;
@@ -1103,6 +1125,10 @@ padding: 0 !important;
   .nav-cta {
     margin-left: 0;
     padding: 12px 28px;
+  }
+
+  nav a {
+    font-size: 16px;
   }
 
   /* Courses grid: 2 columns on tablets */
@@ -1165,6 +1191,10 @@ padding: 0 !important;
     height: 42px;
     font-size: 18px;
   }
+
+  /* Keep equal distance from slider edges */
+  .hero-prev { left: 12px; }
+  .hero-next { right: 12px; }
 }
 
 /* Responsive (Mobile & small tablets): applies for screens <= 768px */
@@ -2511,8 +2541,37 @@ footer {
 }
 
 @media (max-width: 560px){
-  .achievers-carousel-viewport{ height: 740px; }
-  .achiever-slide{ width: min(520px, 92vw); }
+  .achievers-section{
+    padding: 0px 0 70px;
+  }
+
+  .achievers-carousel{
+    margin-top: 28px;
+  }
+
+  /* Mobile: single-card slider */
+  .achievers-carousel-viewport{
+    height: auto;
+    overflow: hidden;
+  }
+
+  .achievers-carousel-track{
+    display: flex;
+    transition: transform 320ms ease;
+    will-change: transform;
+  }
+
+  .achiever-slide{
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    flex: 0 0 100%;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    filter: none;
+  }
 }
 
 .achievers-grid{
@@ -2536,6 +2595,26 @@ footer {
   box-shadow: 0 12px 35px rgba(2, 6, 23, 0.08);
   padding: 36px 32px 32px;
   text-align: center;
+}
+
+@media (max-width: 560px){
+  .achiever-card{
+    padding: 18px 14px 14px;
+  }
+
+  .achiever-quote{
+    font-size: 13.5px;
+    line-height: 1.6;
+    min-height: unset;
+  }
+
+  .achiever-name{
+    font-size: 16px;
+  }
+
+  .achiever-rank{
+    margin: 6px 0 0;
+  }
 }
 
 .achiever-avatar{
@@ -2575,6 +2654,7 @@ footer {
 
 .achiever-quote{
   margin: 0;
+  padding: 0 !important;
   color: #64748b;
   font-style: italic;
   line-height: 1.8;
@@ -2584,20 +2664,24 @@ footer {
 
 @media (max-width: 560px){
   .achiever-avatar{
-    width: 112px;
-    height: 112px;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 12px;
   }
 }
 
 .achiever-name{
   /* margin: 18px 0 0; */
+  margin: 16px 0 0;
+  padding: 0 !important;
   color: #1976d2;
   font-size: 18px;
   font-weight: 800;
 }
 
 .achiever-rank{
-  margin: -36px 0 0;
+  margin: 8px 0 0;
+  padding: 0 !important;
   color: #1976d2;
   font-size: 12px;
   font-weight: 700;

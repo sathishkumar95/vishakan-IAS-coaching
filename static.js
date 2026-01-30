@@ -191,6 +191,7 @@ if (heroSlides.length && heroDots.length) {
   if (!track) return;
 
   const slides = Array.from(track.querySelectorAll(".achiever-slide"));
+  const viewport = track.closest(".achievers-carousel-viewport");
 
   let index = 0;
 
@@ -206,11 +207,31 @@ if (heroSlides.length && heroDots.length) {
     if (!n) return;
 
     const isSmall = window.matchMedia("(max-width: 560px)").matches;
+
+    // Mobile: simple 1-card slider
+    if (isSmall) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+
+      slides.forEach((slide) => {
+        slide.style.opacity = "1";
+        slide.style.pointerEvents = "auto";
+        slide.style.zIndex = "1";
+        slide.style.transform = "none";
+        slide.style.filter = "none";
+        slide.onclick = null;
+      });
+
+      return;
+    }
+
     const isMedium = window.matchMedia("(max-width: 900px)").matches;
-    const xStep = isSmall ? 175 : isMedium ? 240 : 320;
-    const activeScale = isSmall ? 1.02 : 1.05;
-    const sideScale = isSmall ? 0.90 : 0.92;
-    const sideOpacity = isSmall ? 0.34 : 0.42;
+    const xStep = isMedium ? 240 : 320;
+    const activeScale = 1.05;
+    const sideScale = 0.92;
+    const sideOpacity = 0.42;
+
+    // Desktop/Tablet: coverflow (3 visible)
+    track.style.transform = "";
 
     slides.forEach((slide, i) => {
       const d = circularDiff(i, index, n);
@@ -259,6 +280,51 @@ if (heroSlides.length && heroDots.length) {
   window.prevTestimonialSlide = prev;
 
   update();
+
+  // Mobile swipe support (single-card slider)
+  if (!window.__achieversSwipeBound && viewport) {
+    window.__achieversSwipeBound = true;
+
+    let startX = 0;
+    let startY = 0;
+
+    viewport.addEventListener(
+      "touchstart",
+      (e) => {
+        const t = e.touches && e.touches[0];
+        if (!t) return;
+        startX = t.clientX;
+        startY = t.clientY;
+      },
+      { passive: true }
+    );
+
+    viewport.addEventListener(
+      "touchend",
+      (e) => {
+        const t = e.changedTouches && e.changedTouches[0];
+        if (!t) return;
+
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+        // Tap support (user taps right/left side)
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+          const rect = viewport.getBoundingClientRect();
+          const x = t.clientX - rect.left;
+          if (x > rect.width / 2) next();
+          else prev();
+          return;
+        }
+
+        // Swipe support
+        if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+
+        if (dx < 0) next();
+        else prev();
+      },
+      { passive: true }
+    );
+  }
 
   if (!window.__achieversCarouselResizeBound) {
     window.__achieversCarouselResizeBound = true;
