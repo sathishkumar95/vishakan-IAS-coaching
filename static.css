@@ -508,8 +508,12 @@ nav a:hover {
 
 @media (max-width: 560px){
   .about-founder-nav{
-    display: none !important;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
+  .about-founder-prev{ left: 8px; }
+  .about-founder-next{ right: 8px; }
 }
 /* hero slide2  */
 .slide-left {
@@ -1374,7 +1378,8 @@ padding: 0 !important;
     /* padding: var(--page-pad-y) var(--page-pad-x); */
     width: 100%;
     justify-items: center;
-    padding: 10px;
+    /* padding: 10px; */
+    padding-left: 50px  ;
   }
 
   /* Mobile order: left -> form -> right */
@@ -1385,7 +1390,7 @@ padding: 0 !important;
   }
   .contact-form-card { 
         grid-row: 2;
-      width: min(92vw, 360px) !important;
+        width: 370px ! important;
         height: 100%;
   }
   .contact-right {
@@ -1399,15 +1404,7 @@ padding: 0 !important;
     justify-content: center;
     gap: 24px;
     margin-top: 28px;
-    padding-left: 0;
-  }
-
-  /* Courses: prevent title/subtitle overlap on mobile */
-  .courses-title{
-    margin: 0 0 12px;
-  }
-  .courses .subtitle{
-    margin: 0 0 18px !important;
+    padding-left: 80px;
   }
 
   .contact-left,
@@ -1457,7 +1454,7 @@ padding: 0 !important;
 /* Responsive (Mobile): applies for screens <= 480px */
 @media (max-width: 480px) {
   .container {
-    width: 100%;
+    width: 135%;
   }
 
   .slider-container {
@@ -3041,27 +3038,6 @@ footer ul li i > svg{
 
 .courses h1 {
   padding-top: 0rem;
-}
-
-.courses-title{
-  padding: 0;
-  margin: 0 0 10px;
-  line-height: 1.15;
-}
-
-.courses-title-main{
-  display: block;
-  color: var(--color-primary);
-  font-weight: 800;
-  letter-spacing: 0.3px;
-}
-
-.courses-title-sub{
-  display: block;
-  margin-top: 6px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #000000;
 }
 
 .subtitle {
