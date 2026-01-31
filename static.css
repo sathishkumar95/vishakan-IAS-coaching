@@ -291,14 +291,14 @@ nav a:hover {
 
 .hero-text .subtext {
     font-size: 14px;
-    color: #334155;
+    color: #000000;
     margin-bottom: 15px;
     padding: 0;
 }
 
 .hero-text .small-text {
     font-size: 12px;
-    color: #64748b;
+    color: #000000;
     margin-top: 10px;
     padding: 0;
     font-style: italic;
@@ -334,7 +334,7 @@ nav a:hover {
   margin: 10px 0 0;
   font-size: 16px !important;
   line-height: 1.4;
-  color: #6b7280;
+  color: #000000;
 }
 
 .about-founder-underline {
@@ -402,7 +402,7 @@ nav a:hover {
   margin: 0 0 14px;
   font-size: 14px !important;
   line-height: 1.9;
-  color: #6b7280;
+  color: #000000;
 }
 
 .about-founder-stats {
@@ -579,7 +579,7 @@ nav a:hover {
     gap: 8px;
     margin-bottom: 3px;
     font-size: 11px;
-    color: #334155;
+    color: #000000;
 }
 
 .hero-card ul li::before {
@@ -758,7 +758,7 @@ nav a:hover {
 
 .slide-content p {
   font-size: 16px;
-  color: #444;
+  color: #000000;
   max-width: 520px;
 }
 
@@ -783,7 +783,7 @@ nav a:hover {
 
 .slide-card li {
   margin-bottom: 10px;
-  color: #333;
+  color: #000000;
 }
 
 .buttons {
@@ -960,7 +960,7 @@ nav a:hover {
 }
 
 .blue-text {
-    color: #0a1a33;
+  color: #000000;
 }
 
 .subtitle {
@@ -985,7 +985,7 @@ nav a:hover {
 }
 
 .dark {
-    background: #0a1a33;
+    background: #000000;
     color: #fff;
 }
 
@@ -1070,7 +1070,7 @@ padding: 0 !important;
   margin: 0;
   font-size: 15px !important;
   line-height: 1.8;
-  color: #6b7280;
+  color: #000000;
   font-style: italic;
 }
 
@@ -1548,7 +1548,7 @@ padding: 0 !important;
 .slider-heading {
     font-size: 32px;
     font-weight: 800;
-    color: #0a1a33;
+  color: #000000;
     margin: 0 0 40px 0;
 }
 /* /////////////////////////////////////// */
@@ -1635,14 +1635,14 @@ padding: 0 !important;
 .center-card h3 {
     margin: 16px 0 10px 0;
     font-size: 20px;
-    color: #0a1a33;
+  color: #000000;
     font-weight: 700;
 }
 
 .center-card p {
     margin: 0;
     font-size: 14px;
-    color: #64748b;
+  color: #000000;
     line-height: 1.6;
     flex-grow: 1;
 }
@@ -1720,7 +1720,7 @@ padding: 0 !important;
   padding: 0 !important;
   font-size: 15px !important;
   line-height: 1.5;
-  color: #6b7280 !important;
+  color: #000000 !important;
 }
 
 .video-underline{
@@ -2035,7 +2035,7 @@ padding: 0 !important;
 .contact-left .subtitle {
   padding: 0 !important;
   margin: 0 0 34px;
-  color: #6b7280;
+  color: #000000;
   font-size: 16px !important;
   line-height: 1.5;
 }
@@ -2053,7 +2053,7 @@ padding: 0 !important;
   margin: 0;
   font-size: 14px !important;
   line-height: 1.9;
-  color: #6b7280;
+  color: #000000;
 }
 
 /* ICON BOX */
@@ -2092,7 +2092,7 @@ padding: 0 !important;
 
 .contact-icons small {
   display: block;
-  color: #111827;
+  color: #000000;
   font-size: 13px;
   white-space: nowrap;
 }
@@ -2118,7 +2118,7 @@ padding: 0 !important;
 
 .form-subtitle {
   margin-bottom: 20px;
-  color: #777;
+  color: #000000;
 }
 
 .contact-form-card input,
@@ -2164,11 +2164,11 @@ button {
   padding: 0 !important;
   font-size: 12px !important;
   line-height: 1.35;
-  color: #6b7280 !important;
+  color: #000000 !important;
 }
 
 .contact-form-card .terms a {
-  color: #111827;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -2185,7 +2185,7 @@ button {
 .contact-right li {
   margin-bottom: 18px;
   font-size: 18px;
-  color: #111827;
+  color: #000000;
 }
 
 .contact-right .footer-box ul{
@@ -2205,7 +2205,7 @@ button {
 .contact-right .footer-box li a{
   display: inline-block;
   margin: 0;
-  color: #111827;
+  color: #000000;
   font-weight: 700;
 }
 
@@ -2259,7 +2259,7 @@ footer {
 
 .footer-box a {
   display: block;
-  color: #2c2a2a;
+  color: #000000;
   text-decoration: none;
   margin-bottom: 6px;
 }
@@ -2346,7 +2346,7 @@ footer {
 }
 
 .subtitle {
-  color: #6b7280;
+  color: #000000;
   margin-top: 8px;
 }
 
@@ -2449,7 +2449,7 @@ footer {
 
 .card-info p {
   font-size: 13px;
-  color: #6b7280;
+  color: #000000;
 }
 
 /* ARROWS */
@@ -2499,7 +2499,7 @@ footer {
 .achievers-subtitle{
   text-align: center;
  margin: -40px -10px -1px;
-  color: #64748b;
+  color: #000000;
   font-size: 15px;
 }
 
@@ -2638,7 +2638,7 @@ footer {
   place-items: center;
   border: 4px solid #1976d2;
   background: radial-gradient(circle at 30% 30%, #e2e8f0, #cbd5e1);
-  color: #0f172a;
+  color: #000000;
   font-weight: 800;
   letter-spacing: 0.5px;
   user-select: none;
@@ -2678,7 +2678,7 @@ footer {
 .achiever-quote{
   margin: 0;
   padding: 0 !important;
-  color: #64748b;
+  color: #000000;
   font-style: italic;
   line-height: 1.8;
   font-size: 15px;
@@ -2928,7 +2928,7 @@ footer ul li i > svg{
 
 .contact-right .footer-box ul li a{
   font-size: 18px;
-  color: #0f172a;  /* adjust if your right panel is dark */
+  color: #000000;
   text-decoration: none;
 }
 .contact-right .footer-box ul li a:hover{
