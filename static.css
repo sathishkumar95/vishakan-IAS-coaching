@@ -1329,7 +1329,8 @@ padding: 0 !important;
     /* padding: var(--page-pad-y) var(--page-pad-x); */
     width: 100%;
     justify-items: center;
-    padding: 10px;
+    /* padding: 10px; */
+    padding-left: 50px  ;
   }
 
   /* Mobile order: left -> form -> right */
@@ -1340,7 +1341,7 @@ padding: 0 !important;
   }
   .contact-form-card { 
         grid-row: 2;
-        width: 320px ! important;
+        width: 370px ! important;
         height: 100%;
   }
   .contact-right {
@@ -1354,6 +1355,7 @@ padding: 0 !important;
     justify-content: center;
     gap: 24px;
     margin-top: 28px;
+    padding-left: 80px;
   }
 
   .contact-left,
@@ -1987,12 +1989,12 @@ padding: 0 !important;
  max-width: 337px;
 }
 .contact-right .underline {
-  width: 99px;
+  width: 114px !important;
   height: 8px;
   background: var(--color-primary);
-  /* margin: 14px 0 14px; */
+  margin: -3px 68px 5px;
   border-radius: 999px;
-  padding: 0;
+  padding-left: 10px !important;
 
 }
 

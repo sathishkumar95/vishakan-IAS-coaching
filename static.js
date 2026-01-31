@@ -146,42 +146,192 @@ function playVideoCarousel(videoId, el) {
    HERO SLIDER (MANUAL)
 ============================ */
 let currentHeroSlide = 0;
-const heroSlides = document.querySelectorAll(".hero-slide");
-const heroDots = document.querySelectorAll(".hero-dot");
-const heroPrevBtn = document.querySelector(".hero-prev");
-const heroNextBtn = document.querySelector(".hero-next");
-const heroDotsWrap = document.querySelector(".hero-dots");
 
-// If there is only one (or zero) hero slide, hide navigation controls
-if (heroSlides.length <= 1) {
-  if (heroPrevBtn) heroPrevBtn.style.display = "none";
-  if (heroNextBtn) heroNextBtn.style.display = "none";
-  if (heroDotsWrap) heroDotsWrap.style.display = "none";
+function getHeroEls() {
+  return {
+    slider: document.querySelector(".hero-slider"),
+    wrapper: document.querySelector(".hero-slider .slider-wrapper"),
+    dotsWrap: document.querySelector(".hero-slider .hero-dots"),
+    prevBtn: document.querySelector(".hero-slider .hero-prev"),
+    nextBtn: document.querySelector(".hero-slider .hero-next"),
+    slides: Array.from(document.querySelectorAll(".hero-slider .hero-slide")),
+    dots: Array.from(document.querySelectorAll(".hero-slider .hero-dot")),
+  };
+}
+
+function setHeroNavVisibility(slideCount) {
+  const { prevBtn, nextBtn, dotsWrap } = getHeroEls();
+  const shouldShow = slideCount > 1;
+  if (prevBtn) prevBtn.style.display = shouldShow ? "" : "none";
+  if (nextBtn) nextBtn.style.display = shouldShow ? "" : "none";
+  if (dotsWrap) dotsWrap.style.display = shouldShow ? "" : "none";
 }
 
 function showHeroSlide(index) {
-  if (!heroSlides.length || !heroDots.length) return; // ✅ guard
+  const { slides, dots } = getHeroEls();
+  if (!slides.length) return;
 
-  currentHeroSlide = (index + heroSlides.length) % heroSlides.length;
+  currentHeroSlide = (index + slides.length) % slides.length;
+  slides.forEach((s) => s.classList.remove("active"));
+  dots.forEach((d) => d.classList.remove("active"));
 
-  heroSlides.forEach(slide => slide.classList.remove("active"));
-  heroDots.forEach(dot => dot.classList.remove("active"));
-
-  heroSlides[currentHeroSlide].classList.add("active");
-  heroDots[currentHeroSlide].classList.add("active");
+  slides[currentHeroSlide]?.classList.add("active");
+  dots[currentHeroSlide]?.classList.add("active");
 }
 
+// Keep as global for the inline onclick handlers in HTML
 function moveHeroSlide(dir) {
-  if (!heroSlides.length) return; // ✅ guard
+  const { slides } = getHeroEls();
+  if (slides.length <= 1) return;
   showHeroSlide(currentHeroSlide + dir);
 }
 
-if (heroSlides.length && heroDots.length) {
-  heroDots.forEach(dot => {
-    dot.addEventListener("click", () => showHeroSlide(+dot.dataset.slide));
+function imageExists(url, timeoutMs = 1800) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    let done = false;
+
+    const finish = (ok) => {
+      if (done) return;
+      done = true;
+      resolve(ok);
+    };
+
+    const t = setTimeout(() => finish(false), timeoutMs);
+    img.onload = () => {
+      clearTimeout(t);
+      finish(true);
+    };
+    img.onerror = () => {
+      clearTimeout(t);
+      finish(false);
+    };
+
+    img.src = url;
   });
-  showHeroSlide(0); // ✅ only run if slides exist
 }
+
+function joinUrlPath(dir, file) {
+  if (!dir.endsWith("/")) dir += "/";
+  if (file.startsWith("/")) file = file.slice(1);
+  return dir + file;
+}
+
+async function tryFetchAssetListing(dir = "./assets/") {
+  try {
+    const res = await fetch(dir, { cache: "no-store" });
+    if (!res.ok) return [];
+    const text = await res.text();
+
+    // Parse simple directory listings (Apache/Nginx/etc.)
+    const hrefs = Array.from(text.matchAll(/href\s*=\s*"([^"]+)"/gi)).map((m) => m[1]);
+    const files = hrefs
+      .map((h) => h.split("?")[0])
+      .map((h) => h.replace(/^\//, ""))
+      .filter((h) => /\.(png|jpg|jpeg|webp|gif)$/i.test(h))
+      .map((h) => h.split("/").pop())
+      .filter(Boolean);
+
+    return Array.from(new Set(files));
+  } catch {
+    return [];
+  }
+}
+
+async function scanHeroSliderImages() {
+  const assetDir = "./assets/";
+  const exts = ["png", "jpg", "jpeg", "webp", "gif"]; // keep broad; only existing will load
+
+  // 1) Prefer real directory listing, if hosting allows it
+  const listedFiles = await tryFetchAssetListing(assetDir);
+  const sliderFiles = listedFiles
+    .filter((f) => f.toLowerCase().startsWith("slider"))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+
+  if (sliderFiles.length) {
+    return sliderFiles.map((f) => joinUrlPath(assetDir, f));
+  }
+
+  // 2) Fallback: probe sequential filenames (slider1.png, slider2.jpg, slider-3.webp, etc.)
+  const found = [];
+  const max = 20;
+  const patterns = [
+    (n, ext) => `slider${n}.${ext}`,
+    (n, ext) => `slider-${n}.${ext}`,
+    (n, ext) => `slider_${n}.${ext}`,
+  ];
+
+  for (let i = 1; i <= max; i++) {
+    let foundForIndex = null;
+    for (const ext of exts) {
+      for (const p of patterns) {
+        const candidate = joinUrlPath(assetDir, p(i, ext));
+        // eslint-disable-next-line no-await-in-loop
+        const ok = await imageExists(candidate);
+        if (ok) {
+          foundForIndex = candidate;
+          break;
+        }
+      }
+      if (foundForIndex) break;
+    }
+
+    if (foundForIndex) {
+      found.push(foundForIndex);
+    } else if (found.length) {
+      // stop after the first gap once we already found at least one
+      break;
+    }
+  }
+
+  return found;
+}
+
+function buildHeroSlider(imageUrls) {
+  const { wrapper, dotsWrap } = getHeroEls();
+  if (!wrapper || !dotsWrap) return;
+  if (!Array.isArray(imageUrls) || imageUrls.length === 0) return;
+
+  wrapper.innerHTML = "";
+  dotsWrap.innerHTML = "";
+
+  imageUrls.forEach((src, i) => {
+    const slide = document.createElement("div");
+    slide.className = `hero-slide hero-image-slide${i === 0 ? " active" : ""}`;
+    slide.innerHTML = `<img class="hero-slide-img" src="${src}" alt="Hero slide ${i + 1}">`;
+    wrapper.appendChild(slide);
+
+    const dot = document.createElement("span");
+    dot.className = `hero-dot${i === 0 ? " active" : ""}`;
+    dot.dataset.slide = String(i);
+    dot.addEventListener("click", () => showHeroSlide(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  currentHeroSlide = 0;
+  setHeroNavVisibility(imageUrls.length);
+  showHeroSlide(0);
+}
+
+// Init: scan assets and rebuild slider. If scan fails, keep existing markup but still apply nav visibility.
+(async () => {
+  const { wrapper } = getHeroEls();
+  if (!wrapper) return;
+
+  const scanned = await scanHeroSliderImages();
+  if (scanned.length) {
+    buildHeroSlider(scanned);
+    return;
+  }
+
+  // Fallback: use existing slides from HTML
+  const existing = Array.from(document.querySelectorAll(".hero-slider .hero-slide-img"))
+    .map((img) => img.getAttribute("src"))
+    .filter(Boolean);
+
+  setHeroNavVisibility(existing.length);
+  showHeroSlide(0);
+})();
 
 /* ============================
    TESTIMONIAL SLIDER
