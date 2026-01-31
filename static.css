@@ -508,12 +508,8 @@ nav a:hover {
 
 @media (max-width: 560px){
   .about-founder-nav{
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
+    display: none;
   }
-  .about-founder-prev{ left: 8px; }
-  .about-founder-next{ right: 8px; }
 }
 /* hero slide2  */
 .slide-left {
