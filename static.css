@@ -1461,6 +1461,45 @@ padding: 0 !important;
     padding: 0 14px;
   }
 
+  /* HERO SLIDER: full mobile viewport, no arrow buttons */
+  .hero-slider {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .hero-slider .slider-container {
+    height: 24vh !important;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-slider .slider-wrapper {
+    height: 100%;
+  }
+
+  .hero-slider .hero-slide,
+  .hero-slider .hero-slide.active {
+    height: 100%;
+    padding-bottom: 0;
+    gap: 0;
+  }
+
+  .hero-slider .hero-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .hero-prev,
+  .hero-next {
+    display: none;
+  }
+
   .hero-prev {
     left: 6px;
   }
@@ -1480,6 +1519,11 @@ padding: 0 !important;
   .about-founder-media::before {
     width: 260px;
     height: 260px;
+  }
+
+  /* Remove extra gap between hero slider and About on mobile */
+  .about-founder {
+    padding-top: 12px;
   }
 }
 
@@ -3071,6 +3115,15 @@ footer ul li i > svg{
   align-content: flex-end;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
+
+.card main  {
+
+    padding-top: 0px;
+    margin-top: 0px;
+    width: 8px;
+    padding-left: 157px;
+   
+  }
 
 .card h2 {
   font-family: var(--font-base);

@@ -186,6 +186,51 @@ function moveHeroSlide(dir) {
   showHeroSlide(currentHeroSlide + dir);
 }
 
+function bindHeroSwipe() {
+  if (window.__heroSwipeBound) return;
+  const { slider } = getHeroEls();
+  if (!slider) return;
+
+  const target = slider.querySelector(".slider-container") || slider;
+  window.__heroSwipeBound = true;
+
+  let startX = 0;
+  let startY = 0;
+
+  target.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.touches && e.touches[0];
+      if (!t) return;
+      startX = t.clientX;
+      startY = t.clientY;
+    },
+    { passive: true }
+  );
+
+  target.addEventListener(
+    "touchend",
+    (e) => {
+      const t = e.changedTouches && e.changedTouches[0];
+      if (!t) return;
+
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      const absX = Math.abs(dx);
+      const absY = Math.abs(dy);
+
+      const { slides } = getHeroEls();
+      if (slides.length <= 1) return;
+
+      // Swipe (horizontal)
+      if (absX > 40 && absX > absY) {
+        moveHeroSlide(dx < 0 ? 1 : -1);
+      }
+    },
+    { passive: true }
+  );
+}
+
 function imageExists(url, timeoutMs = 1800) {
   return new Promise((resolve) => {
     const img = new Image();
@@ -321,6 +366,7 @@ function buildHeroSlider(imageUrls) {
   const scanned = await scanHeroSliderImages();
   if (scanned.length) {
     buildHeroSlider(scanned);
+    bindHeroSwipe();
     return;
   }
 
@@ -331,6 +377,7 @@ function buildHeroSlider(imageUrls) {
 
   setHeroNavVisibility(existing.length);
   showHeroSlide(0);
+  bindHeroSwipe();
 })();
 
 /* ============================
