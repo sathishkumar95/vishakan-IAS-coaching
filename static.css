@@ -3103,6 +3103,7 @@ footer ul li i > svg{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  align-items: start;
 }
 
 .card {
@@ -3122,7 +3123,7 @@ footer ul li i > svg{
 }
 
 /* Keep the optional wrapper from introducing spacing */
-.card .main {
+.main {
   padding: 0;
   margin: 0;
 }
