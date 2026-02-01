@@ -218,7 +218,7 @@ nav a:hover {
 .hero-slider {
     position: relative;
     width: 100%;
-    height: 480px;
+    height: 100%;
     overflow: visible;
     padding: 40px 0 15px 0;
     margin: 0;
@@ -3103,7 +3103,7 @@ footer ul li i > svg{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .card {
@@ -3123,7 +3123,7 @@ footer ul li i > svg{
 }
 
 /* Keep the optional wrapper from introducing spacing */
-.main {
+.card .main {
   padding: 0;
   margin: 0;
 }
