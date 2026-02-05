@@ -1545,7 +1545,7 @@ padding: 0 !important;
   }
 
   p:not([class]) {
-    font-size: 15px !important;
+    font-size: 16px !important;
     line-height: 1.55 !important;
     padding: 8px 0 !important;
   }
@@ -3101,9 +3101,42 @@ footer ul li i > svg{
   padding-top: 0rem;
 }
 
+/* Courses title typography */
+.courses .courses-title {
+  padding: 0;
+  margin: 0 0 10px;
+  line-height: 1.05;
+}
+
+.courses .courses-title-main {
+  display: inline-block;
+  font-size: clamp(40px, 4.2vw, 68px);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.courses .courses-title-main::after {
+  content: "";
+  display: block;
+  width: min(260px, 70%);
+  height: 6px;
+  margin: 14px auto 0;
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+
+.courses .courses-title-sub {
+  display: block;
+  font-size: clamp(16px, 1.35vw, 22px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 10px;
+  color: rgba(var(--color-primary-rgb), 0.9);
+}
+
 .subtitle {
   margin-bottom: 20px;
-  margin: -40px -10px -1px;
+  margin: -10px -10px -1px;
 }
 
 .divider {
