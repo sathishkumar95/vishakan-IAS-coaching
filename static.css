@@ -1,7 +1,7 @@
 /* Global CSS */
 
 :root {
-  --font-base: "Poppins";
+  --font-base: Calibri, "Segoe UI", "Helvetica Neue", Arial, "Times New Roman", serif;
   --color-primary: #1B6AA5;
   --color-primary-rgb: 27, 106, 165;
   --page-pad-x: clamp(16px, 5vw, 80px);
@@ -24,6 +24,14 @@ iframe {
 body {
   font-family: var(--font-base);
   font-weight: 400;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+/* No italics anywhere (including <i> tags used for icons) */
+i, em {
+  font-style: normal;
 }
 
 h1, h2, h3 {
@@ -91,10 +99,11 @@ a {
 }
 
 p {
-    line-height: 1;
+    line-height: 1.7;
   color: var(--color-primary);
     padding: 1rem   !important; 
-    /* font-size: 20px !important; */
+    font-size: 19px;
+    font-style: normal;
 
 }
 
@@ -155,7 +164,7 @@ nav a {
     font-weight: 600;
     /* color: #0a1a33; */
   color: var(--color-primary);
-    font-size: 18px;
+    font-size: 19px;
     letter-spacing: 0.1px;
 }
 
@@ -290,18 +299,18 @@ nav a:hover {
 }
 
 .hero-text .subtext {
-    font-size: 14px;
+  font-size: 18px;
     color: #000000;
     margin-bottom: 15px;
     padding: 0;
 }
 
 .hero-text .small-text {
-    font-size: 12px;
+  font-size: 16px;
     color: #000000;
     margin-top: 10px;
     padding: 0;
-    font-style: italic;
+  font-style: normal;
 }
 
 .hero-buttons {
@@ -1119,10 +1128,10 @@ padding: 0 !important;
 .why-card p {
   padding: 0 !important;
   margin: 0;
-  font-size: 15px !important;
+  font-size: 18px !important;
   line-height: 1.8;
   color: #000000;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Responsive (Small laptops / tablet landscape): applies for screens <= 1100px */
@@ -2779,9 +2788,9 @@ footer {
   margin: 0;
   padding: 0 !important;
   color: #000000;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.8;
-  font-size: 15px;
+  font-size: 18px;
   min-height: 300px;
 }
 
@@ -3197,10 +3206,10 @@ footer ul li i > svg{
 }
 
 .card .desc {
-  font-size: 14px;
+  font-size: 16px;
   color: #345492;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 
 .card ul {
@@ -3211,7 +3220,7 @@ footer ul li i > svg{
 }
 
 .card ul li {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 12px;
   padding-left: 28px;
   position: relative;
