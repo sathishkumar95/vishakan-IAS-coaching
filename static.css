@@ -119,13 +119,14 @@ header {
     justify-content: space-between;
     align-items: center;
   min-height: 96px;
-  gap: 34px;
+  gap: clamp(20px, 3vw, 48px);
 }
 
 .logo-area {
     display: flex;
     align-items: center;
   gap: 14px;
+  margin-right: clamp(12px, 2.5vw, 44px);
 }
 
 .logo {
@@ -478,7 +479,7 @@ nav a:hover {
 }
 
 .about-founder-stat-label {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.2;
   opacity: 0.95;
 }
@@ -1075,8 +1076,7 @@ nav a:hover {
 .why-container p {
 padding: 0 !important;
     margin-top: -17px;
-    font-size: 18px;
-    /* line-height: 0; */
+    font-size: 25px;
     color: #d7e2f2;
 }
 
@@ -1120,7 +1120,7 @@ padding: 0 !important;
 .why-card h3 {
   padding: 0;
   margin: 0 0 14px;
-  font-size: 18px;
+  font-size: 23px;
   font-weight: 800;
   color: var(--color-primary);
 }
@@ -1601,7 +1601,7 @@ padding: 0 !important;
 
   .logo-area h2 {
     padding: 0;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 1.2;
   }
 
@@ -2608,13 +2608,14 @@ footer {
   margin: 0;
   color: #0b4b8a; /* deep blue like screenshot */
   font-weight: 800;
+  font-size: 45px;
 }
 
 .achievers-subtitle{
   text-align: center;
  margin: -40px -10px -1px;
   color: #000000;
-  font-size: 15px;
+  font-size: 22px;
 }
 
 .achievers-underline{
@@ -2744,8 +2745,8 @@ footer {
 }
 
 .achiever-avatar{
-  width: 128px;
-  height: 128px;
+  width: 154px;
+  height: 154px;
   border-radius: 999px;
   margin: 0 auto 18px;
   display: grid;
@@ -3100,8 +3101,8 @@ footer ul li i > svg{
 /* Desktop constants (keep responsive behavior on smaller screens) */
 @media (min-width: 901px) {
   .courses {
-    width: 1194px;
-    max-width: 1194px;
+    /* width: 1194px; */
+    max-width: 1308px;
   }
 
   .card {
@@ -3150,6 +3151,7 @@ footer ul li i > svg{
   line-height: 1.2;
   margin-top: 10px;
   color: rgba(var(--color-primary-rgb), 0.9);
+  font-size: 27px;
 }
 
 .subtitle {
@@ -3213,7 +3215,7 @@ footer ul li i > svg{
 }
 
 .card .desc {
-  font-size: 16px;
+  font-size: 22px;
   color: #345492;
   line-height: 1.5;
   margin-bottom: 16px;
@@ -3227,7 +3229,7 @@ footer ul li i > svg{
 }
 
 .card ul li {
-  font-size: 16px;
+  font-size: 21px;
   margin-bottom: 12px;
   padding-left: 28px;
   position: relative;
@@ -3258,7 +3260,7 @@ footer ul li i > svg{
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 21px;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
