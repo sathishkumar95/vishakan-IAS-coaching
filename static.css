@@ -25,7 +25,7 @@ body {
   font-family: var(--font-base);
   font-weight: 400;
   font-style: normal;
-  font-size: 33px;
+  font-size: 24px;
   line-height: 1;
 }
 
@@ -85,7 +85,7 @@ html {
   /* padding-left: clamp(12px, 2vw, 55px);
   padding-right: clamp(12px, 2vw, 24px); */
   border-bottom: 10px solid white;
-  padding-right: 133px;
+  padding-right: 105px;
   padding-left: 105px;
 
 }
@@ -459,11 +459,11 @@ nav a:hover {
 }
 
 .about-founder-role {
-  padding: 0 !important;
-  margin: 0 0 22px;
-  font-size: 24px !important;
-  font-weight: 700;
-  color: #2c77ad;
+   padding: 0 !important;
+    margin: 2px 0 22px;
+    font-size: 34px !important;
+    font-weight: 700;
+    color: #1b6aa5 !important;
 }
 
 .about-founder-content p {
@@ -1146,7 +1146,7 @@ padding: 0 !important;
 }
 
 .why-card h2 {
- padding: 0 0 0 110px;
+ padding: 0 0 0 124px;
     margin: 0 0 14px;
     font-size: 28px;
     font-weight: 800;
@@ -2670,7 +2670,7 @@ footer {
 .achievers-title{
   text-align: center;
   font-size: clamp(26px, 2.4vw, 40px);
-  line-height: 1.15;
+  line-height: 1;
   margin: 0;
   color: #0b4b8a; /* deep blue like screenshot */
   font-weight: 800;
@@ -2679,7 +2679,8 @@ footer {
 
 .achievers-subtitle{
   text-align: center;
- margin: -40px -10px -1px;
+ margin: -56px -10px -1px;
+
   color: #000000;
   font-size: 22px;
 }
